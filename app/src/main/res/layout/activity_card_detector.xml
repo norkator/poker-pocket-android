@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:opencv="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.nitramite.pokerpocket.CardDetector">
+
+    <!--
+    <org.opencv.android.JavaCameraView
+        android:id="@+id/tutorial1_activity_java_surface_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:screenOrientation="portrait" />
+    -->
+
+    <TextView
+        android:id="@+id/outputTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Testing..."
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/startStopBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start" />
+
+
+    <!-- Tutorial window -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/debugWindow"
+        android:layout_width="200dp"
+        android:layout_height="190dp"
+        android:layout_gravity="start"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="80dp"
+        android:visibility="visible"
+        app:cardBackgroundColor="#741919"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="15dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="15dp"
+                android:paddingBottom="5dp"
+                android:text="Optimization"
+                android:textColor="@color/textColorWhite"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fadeScrollbars="false">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/minNeighboursET"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:text="4"
+                        android:textAlignment="center"
+                        android:textColor="#ffffff"
+                        android:textColorHint="#ffffff" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/minWidthET"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:text="200"
+                            android:textAlignment="center"
+                            android:textColor="#ffffff"
+                            android:textColorHint="#ffffff" />
+
+                        <EditText
+                            android:id="@+id/minHeightET"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:text="300"
+                            android:textAlignment="center"
+                            android:textColor="#ffffff"
+                            android:textColorHint="#ffffff" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/saveParamsBtn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Save" />
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</FrameLayout>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:id="@+id/blackJackInfoBtn"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="end"
+        android:layout_margin="10dp"
+        android:background="@drawable/info_icon" />
+
+
+    <ImageView
+        android:id="@+id/blackJackOfflineSettingsBtn"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/settings_icon"
+        android:layout_gravity="end" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- Normal mode -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                style="@style/CardViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:id="@+id/blackJackNormalModeBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_white_rounded_rect"
+                    android:orientation="vertical">
+
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:layout_width="@dimen/menu_bj_card_image_width"
+                        android:layout_height="@dimen/menu_bj_card_image_height"
+                        android:background="@drawable/blackjack_offline_icon"
+                        android:scaleType="centerInside"
+                        app:riv_corner_radius_bottom_left="0dp"
+                        app:riv_corner_radius_bottom_right="0dp"
+                        app:riv_corner_radius_top_left="2dp"
+                        app:riv_corner_radius_top_right="2dp"
+                        app:riv_mutate_background="true" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Normal mode"
+                            android:textAlignment="center"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="♠ Shuffled deck every round.\n♠ You against dealer.\n♠ Offline."
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:visibility="invisible"
+                android:id="@+id/blackJackOfflineLeaderBoardBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="6dp"
+                android:background="@drawable/menu_btn_shape"
+                android:text="Leaderboard" />
+
+        </LinearLayout>
+
+
+        <!-- Counting mode -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                style="@style/CardViewStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                app:cardCornerRadius="5dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:id="@+id/blackJackCountingModeBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_white_rounded_rect"
+                    android:orientation="vertical">
+
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:layout_width="@dimen/menu_bj_card_image_width"
+                        android:layout_height="@dimen/menu_bj_card_image_height"
+                        android:background="@drawable/blackjack_offline_icon"
+                        android:scaleType="centerInside"
+                        app:riv_corner_radius_bottom_left="0dp"
+                        app:riv_corner_radius_bottom_right="0dp"
+                        app:riv_corner_radius_top_left="2dp"
+                        app:riv_corner_radius_top_right="2dp"
+                        app:riv_mutate_background="true" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Counting mode"
+                            android:textAlignment="center"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="♠ Deck is played to the end.\n♠ Learn to count cards.\n♠ Offline."
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <!-- ************************************************* -->
+
+    </LinearLayout>
+
+</FrameLayout>

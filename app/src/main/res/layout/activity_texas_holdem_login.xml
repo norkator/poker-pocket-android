@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.nitramite.pokerpocket.TexasHoldemLogin">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/CardViewStyle"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:padding="10dp" >
+
+
+            <ImageView
+                android:id="@+id/nitramiteLinkBtn"
+                android:layout_width="@dimen/menu_main_nitramite_link_btn_width"
+                android:layout_height="@dimen/menu_main_nitramite_link_btn_height"
+                android:background="@drawable/logo_high_res" />
+
+            <TextView
+                android:id="@+id/formTopTextTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Login to your Poker Pocket account"
+                android:gravity="center"/>
+
+
+            <TextView
+                android:id="@+id/currentUserNameTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"/>
+
+
+
+
+            <!-- Register form components -->
+            <LinearLayout
+                android:id="@+id/registerFormLL"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="5dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_margin="2dp">
+
+                    <EditText
+                        android:id="@+id/registerUsernameET"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Username"
+                        android:inputType="text"
+                        android:gravity="center"/>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="5dp"
+                    android:layout_margin="2dp">
+
+                    <EditText
+                        android:id="@+id/registerPasswordET1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Password"
+                        android:inputType="textPassword"
+                        android:gravity="center" />
+
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="5dp"
+                    android:layout_margin="2dp">
+
+                    <EditText
+                        android:id="@+id/registerPasswordET2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text=""
+                        android:hint="Re-enter Password"
+                        android:inputType="textPassword"
+                        android:gravity="center"/>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="5dp"
+                    android:layout_margin="2dp">
+
+                    <EditText
+                        android:id="@+id/registerEmailET"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text=""
+                        android:hint="Email address"
+                        android:inputType="textEmailAddress"
+                        android:gravity="center"/>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp">
+
+                    <Button
+                        android:id="@+id/registerSignUpBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/btn_bootstrap_blue"
+                        android:textColor="#ffffff"
+                        android:layout_margin="5dp"
+                        android:text="Register"/>
+
+                    <Button
+                        android:id="@+id/registerLogInBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:background="@drawable/btn_bootstrap_gray"
+                        android:layout_marginTop="5dp"
+                        android:layout_margin="5dp"
+                        android:text="Log in"/>
+
+                    <Button
+                        android:id="@+id/registerForgotPasswordBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:background="@drawable/btn_bootstrap_gray"
+                        android:layout_marginTop="5dp"
+                        android:layout_margin="5dp"
+                        android:text="Forgot"/>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+
+
+            <!-- Login form components -->
+            <LinearLayout
+                android:id="@+id/loginFormLL"
+                android:visibility="visible"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="5dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_margin="2dp">
+
+                    <EditText
+                        android:id="@+id/loginUsernameET"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Username"
+                        android:inputType="text"
+                        android:gravity="center"/>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="5dp"
+                    android:layout_margin="2dp">
+
+                    <EditText
+                        android:id="@+id/loginPasswordET"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Password"
+                        android:inputType="textPassword"
+                        android:gravity="center" />
+
+                </androidx.cardview.widget.CardView>
+
+
+                <com.google.android.flexbox.FlexboxLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:flexWrap="wrap"
+                    app:alignItems="stretch"
+                    app:alignContent="stretch">
+
+                    <Button
+                        android:visibility="gone"
+                        android:id="@+id/loginLogoutBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:background="@drawable/btn_bootstrap_green"
+                        android:textColor="#ffffff"
+                        android:layout_marginTop="5dp"
+                        android:layout_margin="5dp"
+                        android:text="Logout"/>
+
+                    <Button
+                        android:id="@+id/loginLogInBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:background="@drawable/btn_bootstrap_blue"
+                        android:textColor="#ffffff"
+                        android:layout_marginTop="5dp"
+                        android:layout_margin="5dp"
+                        android:text="Log in"/>
+
+                    <Button
+                        android:id="@+id/loginSignUpBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/btn_bootstrap_gray"
+                        android:layout_margin="5dp"
+                        android:text="Register"/>
+
+
+                    <Button
+                        android:id="@+id/loginForgotPasswordBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:background="@drawable/btn_bootstrap_gray"
+                        android:layout_marginTop="5dp"
+                        android:layout_margin="5dp"
+                        android:text="Forgot"/>
+
+                </com.google.android.flexbox.FlexboxLayout>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

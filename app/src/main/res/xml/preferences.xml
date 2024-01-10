@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:key="first_level"
+    android:title="Settings">
+
+    <PreferenceCategory
+        android:title="Settings">
+
+        <EditTextPreference
+            android:key="SP_PLAYER_NICKNAME"
+            android:title="Nickname"
+            android:summary="Your nickname on offline and online games (max 10 chars)"
+            android:text="Anon"
+            android:maxLength="10"/>
+
+        <SwitchPreference
+            android:key="SP_ENABLE_SOUNDS"
+            android:title="Enable sounds"
+            android:summary="Turn off to disable sounds"
+            android:defaultValue="true" />
+
+        <SwitchPreference
+            android:key="SP_USE_BLACK_CARDS"
+            android:title="Black cards"
+            android:summary="Turn on to use black style cards"
+            android:defaultValue="false" />
+
+        <SwitchPreference
+            android:key="SP_USE_PURPLE_HOLDEM_TABLE"
+            android:title="Purple Hold'em table"
+            android:summary="Turn on to use purple hold'em table"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Developer">
+
+        <SwitchPreference
+            android:key="SP_DEVELOPMENT_SERVER"
+            android:title="Development server"
+            android:summary="Switch to development server"
+            android:defaultValue="false" />
+
+        <SwitchPreference
+            android:key="IS_FIRST_TIME_LAUNCH"
+            android:title="Re-show intro"
+            android:summary="Switch on to see intro again on next app launch"
+            android:defaultValue="false" />
+
+        <SwitchPreference
+            android:key="SP_README_COMPLETED"
+            android:title="Readme shown"
+            android:summary="Switch off to see readme again on next app launch"
+            android:defaultValue="false" />
+
+        <SwitchPreference
+            android:key="SP_SHOW_DEVELOPMENT_FEATURES"
+            android:title="Show in development features"
+            android:summary="If switched on, under development features will be visible on UI (restart required)"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="Cheats">
+
+        <SwitchPreference
+            android:key="SP_HOLDEM_AUTO_PLAY"
+            android:title="Auto play"
+            android:summary="Play holdem automatically with logged in account"
+            android:defaultValue="false" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

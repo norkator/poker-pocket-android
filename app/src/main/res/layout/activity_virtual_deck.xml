@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.nitramite.pokerpocket.VirtualDeck"
+    android:orientation="horizontal">
+
+
+    <!-- Common cards -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:gravity="center">
+
+        <LinearLayout
+            android:id="@+id/dealCommonBtn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:background="@drawable/virtual_deck_deal_common_btn"
+            android:gravity="center"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="C"
+                android:textColor="@color/textColorWhite"
+                android:textSize="25dp" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/commonCard1"
+            android:layout_width="@dimen/card_width"
+            android:layout_height="@dimen/card_height"
+            android:layout_margin="2dp"
+            android:adjustViewBounds="true" />
+
+        <ImageView
+            android:id="@+id/commonCard2"
+            android:layout_width="@dimen/card_width"
+            android:layout_height="@dimen/card_height"
+            android:layout_margin="2dp"
+            android:adjustViewBounds="true" />
+
+        <ImageView
+            android:id="@+id/commonCard3"
+            android:layout_width="@dimen/card_width"
+            android:layout_height="@dimen/card_height"
+            android:layout_margin="2dp"
+            android:adjustViewBounds="true" />
+
+        <ImageView
+            android:id="@+id/commonCard4"
+            android:layout_width="@dimen/card_width"
+            android:layout_height="@dimen/card_height"
+            android:layout_margin="2dp"
+            android:adjustViewBounds="true" />
+
+        <ImageView
+            android:id="@+id/commonCard5"
+            android:layout_width="@dimen/card_width"
+            android:layout_height="@dimen/card_height"
+            android:layout_margin="2dp"
+            android:adjustViewBounds="true" />
+
+
+    </LinearLayout>
+
+
+
+    <!-- Virtual deck -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/deckFrame">
+
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/hideCardsBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/virtual_deck_hide_btn"
+            android:gravity="center"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HIDE"
+                android:textSize="40dp"
+                android:textColor="@color/textColorWhite" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/showAllBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/virtual_deck_show_all_btn"
+            android:gravity="center"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SHOW ALL"
+                android:textSize="40dp"
+                android:textColor="@color/textColorWhite" />
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/startOverBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/virtual_deck_start_over_btn"
+            android:gravity="center"
+            android:layout_gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AGAIN"
+                android:textSize="40dp"
+                android:textColor="@color/textColorWhite" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/dealBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/virtual_deck_deal_btn"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DEAL"
+                android:textColor="@color/textColorWhite"
+                android:textSize="40dp" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+
+</LinearLayout>

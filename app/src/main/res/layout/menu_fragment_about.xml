@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="5dp">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingStart="@dimen/mal_baseline_half"
+                    android:paddingLeft="@dimen/mal_baseline_half"
+                    android:paddingTop="@dimen/mal_baseline_half"
+                    android:paddingEnd="@dimen/mal_baseline"
+                    android:paddingRight="@dimen/mal_baseline"
+                    android:paddingBottom="@dimen/mal_baseline_half">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:adjustViewBounds="false"
+                        android:background="@mipmap/logo_circle"
+                        android:cropToPadding="false" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/mal_baseline_half"
+                        android:layout_marginLeft="@dimen/mal_baseline_half"
+                        android:layout_weight="1"
+                        android:text="About Poker Pocket"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                        android:textColor="#232323" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/mal_baseline_half"
+                    android:paddingBottom="@dimen/mal_baseline_half">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/mal_baseline"
+                        android:layout_marginLeft="@dimen/mal_baseline"
+                        android:layout_marginEnd="@dimen/mal_baseline_half"
+                        android:layout_marginRight="@dimen/mal_baseline_half"
+                        android:adjustViewBounds="false"
+                        android:background="@drawable/copyright_icon"
+                        android:cropToPadding="false"
+                        android:scaleType="centerInside" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/mal_baseline"
+                        android:layout_marginLeft="@dimen/mal_baseline"
+                        android:layout_marginEnd="@dimen/mal_baseline"
+                        android:layout_marginRight="@dimen/mal_baseline"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:minHeight="@dimen/mal_action_action_item_image_height"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Nitramite\nGame graphics by Raphael Ciribelly"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                            android:textColor="#767676" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/mal_baseline_half"
+                    android:paddingBottom="@dimen/mal_baseline_half">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/mal_baseline"
+                        android:layout_marginLeft="@dimen/mal_baseline"
+                        android:layout_marginEnd="@dimen/mal_baseline_half"
+                        android:layout_marginRight="@dimen/mal_baseline_half"
+                        android:adjustViewBounds="false"
+                        android:background="@drawable/www_icon"
+                        android:cropToPadding="false"
+                        android:scaleType="centerInside" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/mal_baseline"
+                        android:layout_marginLeft="@dimen/mal_baseline"
+                        android:layout_marginEnd="@dimen/mal_baseline"
+                        android:layout_marginRight="@dimen/mal_baseline"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:minHeight="@dimen/mal_action_action_item_image_height"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="https://pokerpocket.nitramite.com"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                            android:textColor="#767676" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/nitramiteBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/mal_baseline_half"
+                    android:paddingBottom="@dimen/mal_baseline_half">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="@dimen/mal_baseline"
+                        android:layout_marginLeft="@dimen/mal_baseline"
+                        android:layout_marginEnd="@dimen/mal_baseline_half"
+                        android:layout_marginRight="@dimen/mal_baseline_half"
+                        android:adjustViewBounds="false"
+                        android:background="@drawable/www_icon"
+                        android:cropToPadding="false"
+                        android:scaleType="centerInside" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/mal_baseline"
+                        android:layout_marginLeft="@dimen/mal_baseline"
+                        android:layout_marginEnd="@dimen/mal_baseline"
+                        android:layout_marginRight="@dimen/mal_baseline"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:minHeight="@dimen/mal_action_action_item_image_height"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="http://www.nitramite.com"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                            android:textColor="#767676" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/mal_baseline"
+                    android:layout_marginLeft="@dimen/mal_baseline"
+                    android:layout_marginEnd="@dimen/mal_baseline"
+                    android:layout_marginRight="@dimen/mal_baseline"
+                    android:paddingBottom="6dp"
+                    android:text="Thank you for downloading Poker Pocket"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="#767676" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </androidx.cardview.widget.CardView>
+
+
+</LinearLayout>

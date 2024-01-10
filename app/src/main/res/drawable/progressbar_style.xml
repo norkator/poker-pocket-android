@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@android:id/background">
+        <shape>
+            <corners android:radius="2dip" />
+            <gradient
+                android:endColor="@color/playerMoneyCard"
+                android:startColor="@color/playerMoneyCard" />
+        </shape>
+    </item>
+
+    <item android:id="@android:id/secondaryProgress">
+        <clip>
+            <shape>
+                <corners android:radius="2dip" />
+                <gradient
+                    android:endColor="#3cc43c"
+                    android:startColor="#3cc43c" />
+            </shape>
+        </clip>
+    </item>
+
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape>
+                <corners android:radius="2dip" />
+                <gradient
+                    android:endColor="#3cc43c"
+                    android:startColor="#3cc43c" />
+            </shape>
+        </clip>
+    </item>
+
+</layer-list>

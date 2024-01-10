@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Stock theme -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:navigationBarColor">@color/colorPrimaryDark</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <!-- Fullscreen theme dark -->
+    <style name="AppThemeFullscreen" parent="Theme.AppCompat">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:navigationBarColor">@color/gameNavigationBarColor</item>
+    </style>
+
+    <!-- Menu card style -->
+    <style name="CardViewStyle" parent="android:Widget.TextView">
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+        <item name="cardCornerRadius">2dp</item>
+        <item name="cardElevation">2dp</item>
+        <item name="cardPreventCornerOverlap">false</item>
+        <item name="cardUseCompatPadding">true</item>
+    </style>
+
+    <!-- Settings theme -->
+    <style name="SettingsTheme" parent="AppTheme">
+        <item name="windowNoTitle">false</item>
+        <item name="windowActionBar">true</item>
+        <item name="actionBarStyle">@style/AppTheme.actionBarStyle</item>
+    </style>
+    <!-- To follow the guidelines http://www.google.com/design/spec/layout/structure.html#structure-toolbars -->
+    <style name="AppTheme.actionBarStyle" parent="Widget.AppCompat.ActionBar">
+        <item name="background">@color/gameNavigationBarColor</item>
+        <item name="android:navigationBarColor">@color/gameNavigationBarColor</item>
+        <item name="contentInsetStart">72dp</item>
+        <item name="contentInsetLeft">72dp</item>
+    </style>
+
+    <!-- Intro theme -->
+    <style name="Theme.Intro" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+</resources>

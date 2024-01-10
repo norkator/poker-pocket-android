@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ****************************************************** -->
+    <!-- Menu -->
+
+    <dimen name="menu_mini_action_width">40dp</dimen>
+    <dimen name="menu_mini_action_height">40dp</dimen>
+    <dimen name="menu_mini_action_margin">10dp</dimen>
+    <dimen name="menu_holdem_card_image_width">300dp</dimen>
+    <dimen name="menu_holdem_card_image_height">180dp</dimen>
+    <dimen name="menu_bj_card_image_width">300dp</dimen>
+    <dimen name="menu_bj_card_image_height">180dp</dimen>
+    <dimen name="menu_main_nitramite_link_btn_width">180dp</dimen>
+    <dimen name="menu_main_nitramite_link_btn_height">180dp</dimen>
+
+    <!-- About -->
+    <dimen name="mal_baseline">16dp</dimen>
+    <dimen name="mal_baseline_half">8dp</dimen>
+    <dimen name="mal_baseline_quarter">4dp</dimen>
+    <dimen name="mal_action_item_image_width">24dp</dimen>
+    <dimen name="mal_action_action_item_image_height">32dp</dimen>
+    <dimen name="mal_title_item_image_size">40dp</dimen>
+    <dimen name="mal_card_radius">2dp</dimen>
+    <dimen name="mal_card_elevation">2dp</dimen>
+
+
+    <!-- ****************************************************** -->
+    <!-- Texas Hold'em -->
+    <dimen name="middle_layout_height">100dp</dimen>
+    <dimen name="seat_frame_width">200dp</dimen>
+    <dimen name="seat_frame_width_upper">210dp</dimen>
+    <dimen name="seat_frame_height">120dp</dimen>
+    <dimen name="seat_width">140dp</dimen>
+    <dimen name="seat_total_width">180dp</dimen>
+    <dimen name="bottom_section_margin_end">50dp</dimen>
+    <dimen name="card_width">60dp</dimen>
+    <dimen name="card_height">70dp</dimen>
+    <dimen name="player_name_text_size">12sp</dimen>
+    <dimen name="player_money_text_size">12sp</dimen>
+    <dimen name="card_view_elevation_big">8dp</dimen>
+    <dimen name="card_view_elevation_normal">5dp</dimen>
+    <dimen name="card_view_elevation_small">2dp</dimen>
+    <dimen name="dealer_chip_width">50dp</dimen>
+    <dimen name="dealer_chip_height">50dp</dimen>
+
+
+    <!-- ****************************************************** -->
+    <!-- 5-Card Draw -->
+    <dimen name="five_card_draw_player_name_text_size">18dp</dimen>
+    <dimen name="five_card_draw_player_info_card_height">60dp</dimen>
+    <dimen name="five_card_draw_card_width">60dp</dimen>
+    <dimen name="five_card_draw_card_height">70dp</dimen>
+
+
+
+    <!-- ****************************************************** -->
+    <!-- Blackjack -->
+    <dimen name="bj_bottom_tools_height">100dp</dimen>
+    <dimen name="bj_bottom_tools_btn_width">60dp</dimen>
+    <dimen name="bj_bottom_tools_btn_height">60dp</dimen>
+    <dimen name="bj_bottom_tools_btn_bigger_width">70dp</dimen>
+    <dimen name="bj_bottom_tools_btn_bigger_height">60dp</dimen>
+    <dimen name="bj_bottom_tools_hit_btn_width">100dp</dimen>
+    <dimen name="bj_bottom_tools_stand_btn_width">100dp</dimen>
+    <dimen name="bj_bottom_tools_surrender_btn_width">120dp</dimen>
+    <dimen name="bj_table_margin_top">50dp</dimen>
+    <dimen name="bj_table_margin_bottom">130dp</dimen>
+    <dimen name="bj_exit_btn_text_size">30sp</dimen>
+    <dimen name="bj_continue_btn_text_size">30sp</dimen>
+    <dimen name="bj_deck_counting_text_size">30sp</dimen>
+    <dimen name="bj_deck_counting_margin_end">100dp</dimen>
+    <dimen name="bj_deck_counting_margin_top">100dp</dimen>
+    <dimen name="bj_current_stage_tv_margin_bottom">90dp</dimen>
+    <dimen name="bj_dealer_frame_width">320dp</dimen>
+    <dimen name="bj_player_name_text_size">16sp</dimen>
+    <dimen name="bj_player_money_text_size">18sp</dimen>
+    <dimen name="bj_dealer_cards_margin_top">80dp</dimen>
+    <dimen name="bj_dealer_card_number_text_size">20sp</dimen>
+    <dimen name="bj_player_frame_width">200dp</dimen>
+    <dimen name="bj_player_name_text_size_bottom">14sp</dimen>
+    <dimen name="bj_player_money_text_size_bottom">16sp</dimen>
+    <dimen name="bj_player_player_table_padding_top">60dp</dimen>
+    <dimen name="bj_player_total_number_tv_margin_bottom">70dp</dimen>
+    <dimen name="bj_player_card_frame_layout_width">180dp</dimen>
+    <dimen name="bj_player_card_one_margin_start">0dp</dimen>
+    <dimen name="bj_player_card_one_margin_top">0dp</dimen>
+    <dimen name="bj_player_card_two_margin_start">25dp</dimen>
+    <dimen name="bj_player_card_two_margin_top">20dp</dimen>
+    <dimen name="bj_player_card_three_margin_start">50dp</dimen>
+    <dimen name="bj_player_card_three_margin_top">40dp</dimen>
+    <dimen name="bj_player_card_four_margin_start">75dp</dimen>
+    <dimen name="bj_player_card_four_margin_top">60dp</dimen>
+    <dimen name="bj_player_card_five_margin_start">100dp</dimen>
+    <dimen name="bj_player_card_five_margin_top">80dp</dimen>
+    <dimen name="bj_player_card_six_margin_start">125dp</dimen>
+    <dimen name="bj_player_card_six_margin_top">95dp</dimen>
+    <dimen name="bj_player_bet_frame_width">70dp</dimen>
+    <dimen name="bj_player_bet_frame_image_width">30dp</dimen>
+    <dimen name="bj_player_bet_frame_image_height">30dp</dimen>
+    <dimen name="bj_player_total_bet_tv_text_size">18sp</dimen>
+    <dimen name="bj_player_total_bet_tv_margin_top">30dp</dimen>
+
+
+    <!-- ****************************************************** -->
+    <!-- Texas Hold'em online -->
+    <dimen name="texas_holdem_online_bet_frame_width">70dp</dimen>
+
+
+    <!-- ****************************************************** -->
+    <!-- Virtual deck -->
+    <dimen name="virtual_deck_circle_btn_width">400dp</dimen>
+    <dimen name="virtual_deck_circle_btn_height">400dp</dimen>
+
+</resources>

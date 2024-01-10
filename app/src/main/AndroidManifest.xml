@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:installLocation="auto">
+
+    <!-- Required Permissions -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="true"
+        android:icon="@mipmap/logo"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/logo_circle"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:targetApi="s">
+        <activity
+            android:name=".Intro"
+            android:exported="true"
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainMenu"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".TexasHoldemOffline"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppThemeFullscreen" />
+        <activity
+            android:name=".CardTest"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppThemeFullscreen" />
+        <activity
+            android:name=".FiveCardDrawOffline"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppThemeFullscreen" />
+        <activity
+            android:name=".BlackJackOffline"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppThemeFullscreen" />
+
+        <meta-data
+            android:name="com.google.android.gms.games.APP_ID"
+            android:value="@string/app_id" />
+
+        <activity
+            android:name=".TexasHoldem"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppThemeFullscreen" />
+        <activity
+            android:name=".Preferences"
+            android:label="Settings"
+            android:screenOrientation="fullSensor"
+            android:theme="@style/SettingsTheme" />
+        <activity
+            android:name=".TexasHoldemLogin"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity
+            android:name=".TexasHoldemStats"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".SquareSolitaire"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppThemeFullscreen" />
+        <activity
+            android:name=".VirtualDeck"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppThemeFullscreen" />
+        <activity
+            android:name=".Sevens"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppThemeFullscreen" />
+        <activity
+            android:name=".SlotMachine"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeFullscreen"
+            tools:ignore="LockedOrientationActivity" />
+        <activity android:name=".TexasHoldemRankings" />
+    </application>
+
+</manifest>

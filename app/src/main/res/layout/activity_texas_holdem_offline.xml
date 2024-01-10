@@ -1,0 +1,1507 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.nitramite.pokerpocket.TexasHoldemOffline"
+    android:fitsSystemWindows="true">
+
+    <!-- Room status bar (name, spectators, waiting, deck state) -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/roomStatusCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/playerMoneyCard"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/roomNameTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="♦ Offline Holdem"
+                android:textSize="12sp"
+                android:textColor="@color/textColorWhite"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/playersCountTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="♦ Players: 0"
+                android:textSize="12sp"
+                android:textColor="@color/textColorWhite"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text=""
+                android:textSize="12sp"
+                android:textColor="@color/textColorWhite"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text=""
+                android:textSize="12sp"
+                android:textColor="@color/textColorWhite"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- Exit button -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/exitBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        app:cardBackgroundColor="@color/playerMoneyCard"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="@dimen/card_view_elevation_big"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/roomStatusCardView">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingEnd="12dp"
+            android:paddingStart="12dp"
+            android:text="Exit"
+            android:textColor="@color/textColorWhite"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <!-- Continue button (after round | settings specific) -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/continueBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginEnd="4dp"
+        android:layout_marginTop="4dp"
+        app:cardBackgroundColor="@color/playerMoneyCard"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="@dimen/card_view_elevation_big"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/roomStatusCardView">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingEnd="12dp"
+            android:paddingStart="12dp"
+            android:text="Continue"
+            android:textColor="@color/textColorWhite"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+
+    </androidx.cardview.widget.CardView>
+
+
+    <!-- Hint text -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="4dp"
+        android:layout_marginStart="4dp"
+        app:cardBackgroundColor="@color/playerMoneyCard"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="@dimen/card_view_elevation_big"
+        app:layout_constraintBottom_toTopOf="@+id/bottomToolsLayout"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/currentStageTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:maxWidth="100dp"
+            android:padding="5dp"
+            android:text="..."
+            android:textColor="@color/textColorWhite"
+            tools:ignore="HardcodedText" />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <!-- Debug window -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/debugWindow"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:layout_gravity="end|center"
+        android:layout_marginEnd="50dp"
+        android:layout_marginTop="30dp"
+        app:cardBackgroundColor="#741919"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="20dp"
+        android:visibility="invisible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5dp"
+                android:paddingEnd="15dp"
+                android:paddingStart="15dp"
+                android:paddingTop="5dp"
+                android:text="Game debug"
+                android:textColor="@color/textColorWhite"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fadeScrollbars="false">
+
+                <TextView
+                    android:id="@+id/gameTotalMoneyTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="15dp"
+                    android:paddingStart="15dp"
+                    android:text="Total money: "
+                    android:textColor="@color/textColorWhite"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+            </ScrollView>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <!-- Tutorial window -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/tutorialWindow"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_gravity="start"
+        app:cardBackgroundColor="#741919"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="20dp"
+        android:visibility="invisible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5dp"
+                android:paddingEnd="15dp"
+                android:paddingStart="15dp"
+                android:paddingTop="5dp"
+                android:text="Tutorial"
+                android:textColor="@color/textColorWhite"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fadeScrollbars="false">
+
+                <TextView
+                    android:id="@+id/tutorialTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="15dp"
+                    android:paddingStart="15dp"
+                    android:textColor="@color/textColorWhite"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+            </ScrollView>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <!-- Table view contents /0dp height is important for constraints -->
+    <RelativeLayout
+        android:id="@+id/tableViewRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/bottomToolsLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/roomStatusCardView">
+
+        <ImageView
+            android:id="@+id/pokerTableIV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginStart="40dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/poker_table"
+            android:contentDescription="table"
+            tools:ignore="HardcodedText" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginBottom="10dp"
+            tools:ignore="ObsoleteLayoutParam">
+
+            <!-- Table top -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:baselineAligned="false"
+                android:orientation="horizontal"
+                tools:ignore="NestedWeights">
+
+
+                <!-- top - section left (empty) -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    tools:ignore="NestedWeights">
+
+                    <!-- Seat 3 -->
+                    <FrameLayout
+                        android:id="@+id/seat3Frame"
+                        android:layout_width="@dimen/seat_frame_width_upper"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="@dimen/seat_width"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginBottom="8dp"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                app:layout_constraintBottom_toBottomOf="parent">
+
+                                <ImageView
+                                    android:id="@+id/seat3Card0"
+                                    android:layout_width="@dimen/card_width"
+                                    android:layout_height="@dimen/card_height"
+                                    android:layout_marginEnd="2dp"
+                                    android:adjustViewBounds="true"
+                                    android:background="@drawable/card_top_red"
+                                    tools:ignore="ContentDescription" />
+
+                                <ImageView
+                                    android:id="@+id/seat3Card1"
+                                    android:layout_width="@dimen/card_width"
+                                    android:layout_height="@dimen/card_height"
+                                    android:layout_marginStart="2dp"
+                                    android:adjustViewBounds="true"
+                                    android:background="@drawable/card_top_red"
+                                    tools:ignore="ContentDescription" />
+
+                            </LinearLayout>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/seat3Card"
+                            android:layout_width="@dimen/seat_width"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            app:cardBackgroundColor="@color/playerMoneyCard"
+                            app:cardCornerRadius="2dp"
+                            app:cardElevation="@dimen/card_view_elevation_normal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:padding="5dp">
+
+                                <TextView
+                                    android:id="@+id/seat3NameTV"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="Seat 3"
+                                    android:textColor="@color/textColorWhite"
+                                    android:textSize="@dimen/player_name_text_size"
+                                    android:textStyle=""
+                                    tools:ignore="HardcodedText" />
+
+                                <TextView
+                                    android:id="@+id/seat3MoneyTV"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="0$"
+                                    android:textColor="@color/textColorWhite"
+                                    android:textSize="@dimen/player_money_text_size"
+                                    android:textStyle="bold"
+                                    tools:ignore="HardcodedText" />
+
+                            </LinearLayout>
+
+                            <ProgressBar
+                                android:id="@+id/seat3TimeBar"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="5dp"
+                                android:layout_gravity="bottom"
+                                android:indeterminate="false"
+                                android:progress="60"
+                                android:progressDrawable="@drawable/progressbar_style" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <FrameLayout
+                            android:id="@+id/seat3BetFrame"
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|end"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center_horizontal"
+                                android:background="@drawable/chips_in_icon"
+                                tools:ignore="ContentDescription" />
+
+                            <TextView
+                                android:id="@+id/seat3TotalBetTV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="20dp"
+                                android:text="+10"
+                                tools:ignore="HardcodedText" />
+
+                            <TextView
+                                android:id="@+id/seat3LastUserActionTV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center|center_horizontal"
+                                android:text="CHECK"
+                                android:textAlignment="center"
+                                android:textColor="@color/textColorWhite"
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                tools:ignore="HardcodedText" />
+
+                        </FrameLayout>
+
+                        <ImageView
+                            android:id="@+id/seat3DealerChip"
+                            android:layout_width="@dimen/dealer_chip_width"
+                            android:layout_height="@dimen/dealer_chip_height"
+                            android:layout_gravity="end|bottom"
+                            android:layout_marginBottom="30dp"
+                            android:layout_marginEnd="25dp"
+                            android:background="@drawable/dealer_chip"
+                            android:elevation="6dp"
+                            tools:ignore="ContentDescription"
+                            tools:targetApi="lollipop" />
+
+                    </FrameLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <!-- top - section middle -->
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal">
+
+                    <!-- Player money view -->
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginStart="2dp"
+                        app:cardBackgroundColor="@color/playerMoneyCard"
+                        app:cardCornerRadius="2dp"
+                        app:cardElevation="4dp">
+
+                        <TextView
+                            android:id="@+id/totalPotTV"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingBottom="10dp"
+                            android:paddingEnd="20dp"
+                            android:paddingStart="20dp"
+                            android:paddingTop="10dp"
+                            android:text="Pot 15,750$"
+                            android:textColor="@color/textColorWhite"
+                            android:textStyle="bold"
+                            tools:ignore="HardcodedText" />
+
+                    </androidx.cardview.widget.CardView>
+                </FrameLayout>
+
+
+                <!-- top - section right -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <!-- Seat 4 -->
+                    <FrameLayout
+                        android:id="@+id/seat4Frame"
+                        android:layout_width="@dimen/seat_frame_width_upper"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="8dp">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="@dimen/seat_width"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="end"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginBottom="8dp"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                app:layout_constraintBottom_toBottomOf="parent">
+
+                                <ImageView
+                                    android:id="@+id/seat4Card0"
+                                    android:layout_width="@dimen/card_width"
+                                    android:layout_height="@dimen/card_height"
+                                    android:layout_marginEnd="2dp"
+                                    android:adjustViewBounds="true"
+                                    android:background="@drawable/card_top_red"
+                                    tools:ignore="ContentDescription" />
+
+                                <ImageView
+                                    android:id="@+id/seat4Card1"
+                                    android:layout_width="@dimen/card_width"
+                                    android:layout_height="@dimen/card_height"
+                                    android:layout_marginStart="2dp"
+                                    android:adjustViewBounds="true"
+                                    android:background="@drawable/card_top_red"
+                                    tools:ignore="ContentDescription" />
+
+                            </LinearLayout>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/seat4Card"
+                            android:layout_width="@dimen/seat_width"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|end"
+                            app:cardBackgroundColor="@color/playerMoneyCard"
+                            app:cardCornerRadius="2dp"
+                            app:cardElevation="@dimen/card_view_elevation_normal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:padding="5dp">
+
+                                <TextView
+                                    android:id="@+id/seat4NameTV"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="Player 4"
+                                    android:textColor="@color/textColorWhite"
+                                    android:textSize="@dimen/player_name_text_size"
+                                    android:textStyle=""
+                                    tools:ignore="HardcodedText" />
+
+                                <TextView
+                                    android:id="@+id/seat4MoneyTV"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="0$"
+                                    android:textColor="@color/textColorWhite"
+                                    android:textSize="@dimen/player_money_text_size"
+                                    android:textStyle="bold"
+                                    tools:ignore="HardcodedText" />
+
+                            </LinearLayout>
+
+                            <ProgressBar
+                                android:id="@+id/seat4TimeBar"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="5dp"
+                                android:layout_gravity="bottom"
+                                android:indeterminate="false"
+                                android:progress="60"
+                                android:progressDrawable="@drawable/progressbar_style" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <FrameLayout
+                            android:id="@+id/seat4BetFrame"
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|start"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center_horizontal"
+                                android:background="@drawable/chips_in_icon"
+                                tools:ignore="ContentDescription" />
+
+                            <TextView
+                                android:id="@+id/seat4TotalBetTV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="20dp"
+                                android:text="+10"
+                                tools:ignore="HardcodedText" />
+
+                            <TextView
+                                android:id="@+id/seat4LastUserActionTV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center|center_horizontal"
+                                android:text="CHECK"
+                                android:textAlignment="center"
+                                android:textColor="@color/textColorWhite"
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                tools:ignore="HardcodedText" />
+
+                        </FrameLayout>
+
+                        <ImageView
+                            android:id="@+id/seat4DealerChip"
+                            android:layout_width="@dimen/dealer_chip_width"
+                            android:layout_height="@dimen/dealer_chip_height"
+                            android:layout_gravity="start|bottom"
+                            android:layout_marginBottom="30dp"
+                            android:layout_marginStart="25dp"
+                            android:background="@drawable/dealer_chip"
+                            android:elevation="6dp"
+                            tools:ignore="ContentDescription"
+                            tools:targetApi="lollipop" />
+
+                    </FrameLayout>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+            <!-- Table middle -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                tools:ignore="DisableBaselineAlignment">
+
+
+                <!-- middle - section left -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    tools:ignore="NestedWeights">
+
+                    <!-- Seat 2 -->
+                    <FrameLayout
+                        android:id="@+id/seat2Frame"
+                        android:layout_width="@dimen/seat_frame_width"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginStart="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="@dimen/seat_width"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginBottom="8dp"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                app:layout_constraintBottom_toBottomOf="parent">
+
+                                <ImageView
+                                    android:id="@+id/seat2Card0"
+                                    android:layout_width="@dimen/card_width"
+                                    android:layout_height="@dimen/card_height"
+                                    android:layout_marginEnd="2dp"
+                                    android:adjustViewBounds="true"
+                                    android:background="@drawable/card_top_red"
+                                    tools:ignore="ContentDescription" />
+
+                                <ImageView
+                                    android:id="@+id/seat2Card1"
+                                    android:layout_width="@dimen/card_width"
+                                    android:layout_height="@dimen/card_height"
+                                    android:layout_marginStart="2dp"
+                                    android:adjustViewBounds="true"
+                                    android:background="@drawable/card_top_red"
+                                    tools:ignore="ContentDescription" />
+
+                            </LinearLayout>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/seat2Card"
+                            android:layout_width="@dimen/seat_width"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            app:cardBackgroundColor="@color/playerMoneyCard"
+                            app:cardCornerRadius="2dp"
+                            app:cardElevation="@dimen/card_view_elevation_normal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:padding="5dp">
+
+                                <TextView
+                                    android:id="@+id/seat2NameTV"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="Seat 2"
+                                    android:textColor="@color/textColorWhite"
+                                    android:textSize="@dimen/player_name_text_size"
+                                    android:textStyle=""
+                                    tools:ignore="HardcodedText" />
+
+                                <TextView
+                                    android:id="@+id/seat2MoneyTV"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="0$"
+                                    android:textColor="@color/textColorWhite"
+                                    android:textSize="@dimen/player_money_text_size"
+                                    android:textStyle="bold"
+                                    tools:ignore="HardcodedText" />
+
+                            </LinearLayout>
+
+                            <ProgressBar
+                                android:id="@+id/seat2TimeBar"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="5dp"
+                                android:layout_gravity="bottom"
+                                android:indeterminate="false"
+                                android:progress="60"
+                                android:progressDrawable="@drawable/progressbar_style" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <FrameLayout
+                            android:id="@+id/seat2BetFrame"
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="top|end"
+                            android:orientation="vertical"
+                            android:layout_marginTop="5dp">
+
+                            <TextView
+                                android:id="@+id/seat2TotalBetTV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="20dp"
+                                android:text="+10"
+                                tools:ignore="HardcodedText" />
+
+                            <ImageView
+                                android:id="@+id/imageView"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center_horizontal"
+                                android:background="@drawable/chips_in_icon"
+                                tools:ignore="ContentDescription" />
+
+                            <TextView
+                                android:id="@+id/seat2LastUserActionTV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center|center_horizontal"
+                                android:text="CHECK"
+                                android:textAlignment="center"
+                                android:textColor="@color/textColorWhite"
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                tools:ignore="HardcodedText" />
+
+                        </FrameLayout>
+
+                        <ImageView
+                            android:id="@+id/seat2DealerChip"
+                            android:layout_width="@dimen/dealer_chip_width"
+                            android:layout_height="@dimen/dealer_chip_height"
+                            android:layout_gravity="end|bottom"
+                            android:layout_marginBottom="15dp"
+                            android:layout_marginEnd="30dp"
+                            android:background="@drawable/dealer_chip"
+                            android:elevation="6dp"
+                            tools:ignore="ContentDescription"
+                            tools:targetApi="lollipop" />
+
+                    </FrameLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+                <!-- middle - section middle -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/middle_layout_height"
+                    android:layout_marginBottom="2dp"
+                    android:gravity="bottom"
+                    android:orientation="horizontal"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:id="@+id/card1"
+                        android:layout_width="@dimen/card_width"
+                        android:layout_height="@dimen/card_height"
+                        android:layout_margin="2dp"
+                        android:adjustViewBounds="true"
+                        android:background="@drawable/card_top_red"
+                        tools:ignore="ContentDescription" />
+
+                    <ImageView
+                        android:id="@+id/card2"
+                        android:layout_width="@dimen/card_width"
+                        android:layout_height="@dimen/card_height"
+                        android:layout_margin="2dp"
+                        android:adjustViewBounds="true"
+                        android:background="@drawable/card_top_red"
+                        tools:ignore="ContentDescription" />
+
+                    <ImageView
+                        android:id="@+id/card3"
+                        android:layout_width="@dimen/card_width"
+                        android:layout_height="@dimen/card_height"
+                        android:layout_margin="2dp"
+                        android:adjustViewBounds="true"
+                        android:background="@drawable/card_top_red"
+                        tools:ignore="ContentDescription" />
+
+                    <ImageView
+                        android:id="@+id/card4"
+                        android:layout_width="@dimen/card_width"
+                        android:layout_height="@dimen/card_height"
+                        android:layout_margin="2dp"
+                        android:adjustViewBounds="true"
+                        android:background="@drawable/card_top_red"
+                        tools:ignore="ContentDescription,TooManyViews" />
+
+                    <ImageView
+                        android:id="@+id/card5"
+                        android:layout_width="@dimen/card_width"
+                        android:layout_height="@dimen/card_height"
+                        android:layout_margin="2dp"
+                        android:adjustViewBounds="true"
+                        android:background="@drawable/card_top_red"
+                        tools:ignore="ContentDescription" />
+
+                </LinearLayout>
+
+
+                <!-- middle - section right -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <!-- Seat 5 -->
+                    <FrameLayout
+                        android:id="@+id/seat5Frame"
+                        android:layout_width="@dimen/seat_frame_width"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="@dimen/seat_width"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="end">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginBottom="8dp"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                app:layout_constraintBottom_toBottomOf="parent">
+
+                                <ImageView
+                                    android:id="@+id/seat5Card0"
+                                    android:layout_width="@dimen/card_width"
+                                    android:layout_height="@dimen/card_height"
+                                    android:layout_marginEnd="2dp"
+                                    android:adjustViewBounds="true"
+                                    android:background="@drawable/card_top_red"
+                                    tools:ignore="ContentDescription,TooManyViews" />
+
+                                <ImageView
+                                    android:id="@+id/seat5Card1"
+                                    android:layout_width="@dimen/card_width"
+                                    android:layout_height="@dimen/card_height"
+                                    android:layout_marginStart="2dp"
+                                    android:adjustViewBounds="true"
+                                    android:background="@drawable/card_top_red"
+                                    tools:ignore="ContentDescription" />
+
+                            </LinearLayout>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/seat5Card"
+                            android:layout_width="@dimen/seat_width"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end|bottom"
+                            app:cardBackgroundColor="@color/playerMoneyCard"
+                            app:cardCornerRadius="2dp"
+                            app:cardElevation="@dimen/card_view_elevation_normal">
+
+                            <ProgressBar
+                                android:id="@+id/seat5TimeBar"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="5dp"
+                                android:layout_gravity="bottom"
+                                android:indeterminate="false"
+                                android:progress="60"
+                                android:progressDrawable="@drawable/progressbar_style" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:padding="5dp">
+
+                                <TextView
+                                    android:id="@+id/seat5NameTV"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="Player 5"
+                                    android:textColor="@color/textColorWhite"
+                                    android:textSize="@dimen/player_name_text_size"
+                                    android:textStyle=""
+                                    tools:ignore="HardcodedText" />
+
+                                <TextView
+                                    android:id="@+id/seat5MoneyTV"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="0$"
+                                    android:textColor="@color/textColorWhite"
+                                    android:textSize="@dimen/player_money_text_size"
+                                    android:textStyle="bold"
+                                    tools:ignore="HardcodedText" />
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <FrameLayout
+                            android:id="@+id/seat5BetFrame"
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="top|start"
+                            android:orientation="vertical"
+                            android:layout_marginTop="5dp">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center_horizontal"
+                                android:background="@drawable/chips_in_icon"
+                                tools:ignore="ContentDescription" />
+
+                            <TextView
+                                android:id="@+id/seat5TotalBetTV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="20dp"
+                                android:text="+10"
+                                tools:ignore="HardcodedText" />
+
+                            <TextView
+                                android:id="@+id/seat5LastUserActionTV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center|center_horizontal"
+                                android:text="CHECK"
+                                android:textAlignment="center"
+                                android:textColor="@color/textColorWhite"
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                tools:ignore="HardcodedText" />
+
+                        </FrameLayout>
+
+                        <ImageView
+                            android:id="@+id/seat5DealerChip"
+                            android:layout_width="@dimen/dealer_chip_width"
+                            android:layout_height="@dimen/dealer_chip_height"
+                            android:layout_gravity="start|bottom"
+                            android:layout_marginBottom="15dp"
+                            android:layout_marginStart="30dp"
+                            android:background="@drawable/dealer_chip"
+                            android:elevation="6dp"
+                            tools:ignore="ContentDescription"
+                            tools:targetApi="lollipop" />
+
+                    </FrameLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+
+            <!-- Table bottom -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:baselineAligned="false">
+
+
+                <!-- bottom - section left -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    tools:ignore="NestedWeights">
+
+                    <!-- Seat 1 -->
+                    <FrameLayout
+                        android:id="@+id/seat1Frame"
+                        android:layout_width="@dimen/seat_frame_width"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="@dimen/seat_width"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginBottom="8dp"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                app:layout_constraintBottom_toBottomOf="parent">
+
+                                <ImageView
+                                    android:id="@+id/seat1Card0"
+                                    android:layout_width="@dimen/card_width"
+                                    android:layout_height="@dimen/card_height"
+                                    android:layout_marginEnd="2dp"
+                                    android:adjustViewBounds="true"
+                                    android:background="@drawable/card_top_red"
+                                    tools:ignore="ContentDescription" />
+
+                                <ImageView
+                                    android:id="@+id/seat1Card1"
+                                    android:layout_width="@dimen/card_width"
+                                    android:layout_height="@dimen/card_height"
+                                    android:layout_marginStart="2dp"
+                                    android:adjustViewBounds="true"
+                                    android:background="@drawable/card_top_red"
+                                    tools:ignore="ContentDescription" />
+
+                            </LinearLayout>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        <FrameLayout
+                            android:id="@+id/seat1BetFrame"
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center_horizontal"
+                                android:background="@drawable/chips_in_icon"
+                                tools:ignore="ContentDescription" />
+
+                            <TextView
+                                android:id="@+id/seat1TotalBetTV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="20dp"
+                                android:text="+10"
+                                tools:ignore="HardcodedText" />
+
+                            <TextView
+                                android:id="@+id/seat1LastUserActionTV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center|center_horizontal"
+                                android:text="CHECK"
+                                android:textAlignment="center"
+                                android:textColor="@color/textColorWhite"
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                tools:ignore="HardcodedText" />
+
+                        </FrameLayout>
+
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/seat1Card"
+                            android:layout_width="@dimen/seat_width"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            app:cardBackgroundColor="@color/playerMoneyCard"
+                            app:cardCornerRadius="2dp"
+                            app:cardElevation="@dimen/card_view_elevation_normal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:padding="5dp">
+
+                                <TextView
+                                    android:id="@+id/seat1NameTV"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="Seat 1"
+                                    android:textColor="@color/textColorWhite"
+                                    android:textSize="@dimen/player_name_text_size"
+                                    android:textStyle=""
+                                    tools:ignore="HardcodedText" />
+
+                                <TextView
+                                    android:id="@+id/seat1MoneyTV"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="0$"
+                                    android:textColor="@color/textColorWhite"
+                                    android:textSize="@dimen/player_money_text_size"
+                                    android:textStyle="bold"
+                                    tools:ignore="HardcodedText" />
+
+                            </LinearLayout>
+
+                            <ProgressBar
+                                android:id="@+id/seat1TimeBar"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="5dp"
+                                android:layout_gravity="bottom"
+                                android:indeterminate="false"
+                                android:progress="60"
+                                android:progressDrawable="@drawable/progressbar_style" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <ImageView
+                            android:id="@+id/seat1DealerChip"
+                            android:layout_width="@dimen/dealer_chip_width"
+                            android:layout_height="@dimen/dealer_chip_height"
+                            android:layout_gravity="end|bottom"
+                            android:layout_marginBottom="15dp"
+                            android:layout_marginEnd="30dp"
+                            android:background="@drawable/dealer_chip"
+                            android:elevation="6dp"
+                            tools:ignore="ContentDescription"
+                            tools:targetApi="lollipop" />
+
+                    </FrameLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <!-- bottom - section middle -->
+                <LinearLayout
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center_horizontal"
+                    tools:ignore="UselessLeaf" />
+
+
+                <!-- bottom - section right -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <!-- Seat 6 -->
+                    <FrameLayout
+                        android:id="@+id/seat6Frame"
+                        android:layout_width="@dimen/seat_frame_width"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginStart="8dp">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="@dimen/seat_width"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="end">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginBottom="8dp"
+                                android:gravity="center"
+                                android:orientation="horizontal"
+                                app:layout_constraintBottom_toBottomOf="parent">
+
+                                <ImageView
+                                    android:id="@+id/seat6Card0"
+                                    android:layout_width="@dimen/card_width"
+                                    android:layout_height="@dimen/card_height"
+                                    android:layout_marginEnd="2dp"
+                                    android:adjustViewBounds="true"
+                                    android:background="@drawable/card_top_red"
+                                    tools:ignore="ContentDescription" />
+
+                                <ImageView
+                                    android:id="@+id/seat6Card1"
+                                    android:layout_width="@dimen/card_width"
+                                    android:layout_height="@dimen/card_height"
+                                    android:layout_marginStart="2dp"
+                                    android:adjustViewBounds="true"
+                                    android:background="@drawable/card_top_red"
+                                    tools:ignore="ContentDescription" />
+
+                            </LinearLayout>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/seat6Card"
+                            android:layout_width="@dimen/seat_width"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|end"
+                            app:cardBackgroundColor="@color/playerMoneyCard"
+                            app:cardCornerRadius="2dp"
+                            app:cardElevation="@dimen/card_view_elevation_normal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:padding="5dp">
+
+                                <TextView
+                                    android:id="@+id/seat6NameTV"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="Player 6"
+                                    android:textColor="@color/textColorWhite"
+                                    android:textSize="@dimen/player_name_text_size"
+                                    android:textStyle=""
+                                    tools:ignore="HardcodedText" />
+
+                                <TextView
+                                    android:id="@+id/seat6MoneyTV"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:text="0$"
+                                    android:textColor="@color/textColorWhite"
+                                    android:textSize="@dimen/player_money_text_size"
+                                    android:textStyle="bold"
+                                    tools:ignore="HardcodedText" />
+
+                            </LinearLayout>
+
+                            <ProgressBar
+                                android:id="@+id/seat6TimeBar"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="5dp"
+                                android:layout_gravity="bottom"
+                                android:indeterminate="false"
+                                android:progress="60"
+                                android:progressDrawable="@drawable/progressbar_style" />
+
+                        </androidx.cardview.widget.CardView>
+
+                        <FrameLayout
+                            android:id="@+id/seat6BetFrame"
+                            android:layout_width="60dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center_horizontal"
+                                android:background="@drawable/chips_in_icon"
+                                tools:ignore="ContentDescription" />
+
+                            <TextView
+                                android:id="@+id/seat6TotalBetTV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="20dp"
+                                android:text="+10"
+                                tools:ignore="HardcodedText" />
+
+                            <TextView
+                                android:id="@+id/seat6LastUserActionTV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center|center_horizontal"
+                                android:text="CHECK"
+                                android:textAlignment="center"
+                                android:textColor="@color/textColorWhite"
+                                android:textSize="15sp"
+                                android:textStyle="bold"
+                                tools:ignore="HardcodedText" />
+
+                        </FrameLayout>
+
+                        <ImageView
+                            android:id="@+id/seat6DealerChip"
+                            android:layout_width="@dimen/dealer_chip_width"
+                            android:layout_height="@dimen/dealer_chip_height"
+                            android:layout_gravity="start|bottom"
+                            android:layout_marginBottom="15dp"
+                            android:layout_marginStart="30dp"
+                            android:background="@drawable/dealer_chip"
+                            android:elevation="6dp"
+                            tools:ignore="ContentDescription"
+                            tools:targetApi="lollipop" />
+
+                    </FrameLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+
+
+
+
+    <!-- Bottom tools -->
+    <LinearLayout
+        android:id="@+id/bottomToolsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+
+        <!-- Right -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="2dp"
+                app:cardElevation="5dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/tenBtn"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/action_btn_shape"
+                            android:text="+10"
+                            android:textColor="@color/textColorWhite"
+                            tools:ignore="ButtonStyle,HardcodedText" />
+
+                        <Button
+                            android:id="@+id/twentyFiveBtn"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/action_btn_shape"
+                            android:text="+25"
+                            android:textColor="@color/textColorWhite"
+                            tools:ignore="ButtonStyle,HardcodedText" />
+
+                        <Button
+                            android:id="@+id/oneHundredBtn"
+                            android:layout_width="50dp"
+                            android:layout_height="40dp"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/action_btn_shape"
+                            android:text="+100"
+                            android:textColor="@color/textColorWhite"
+                            tools:ignore="ButtonStyle,HardcodedText" />
+
+
+                        <Button
+                            android:id="@+id/fiveHundredBtn"
+                            android:layout_width="50dp"
+                            android:layout_height="40dp"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/action_btn_shape"
+                            android:text="+500"
+                            android:textColor="@color/textColorWhite"
+                            tools:ignore="ButtonStyle,HardcodedText" />
+
+                        <Button
+                            android:id="@+id/allInBtn"
+                            android:layout_width="50dp"
+                            android:layout_height="40dp"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/action_btn_shape"
+                            android:text="All in"
+                            android:textColor="@color/textColorWhite"
+                            tools:ignore="ButtonStyle,HardcodedText" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/foldBtn"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/action_btn_shape"
+                        android:text="FOLD"
+                        android:textColor="@color/textColorWhite"
+                        tools:ignore="ButtonStyle,HardcodedText" />
+
+                    <Button
+                        android:id="@+id/checkBtn"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/action_btn_shape"
+                        android:text="CHECK"
+                        android:textColor="@color/textColorWhite"
+                        tools:ignore="ButtonStyle,HardcodedText" />
+
+                    <Button
+                        android:id="@+id/raiseBtn"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/action_btn_shape"
+                        android:text="RAISE"
+                        android:textColor="@color/textColorWhite"
+                        tools:ignore="ButtonStyle,HardcodedText" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
